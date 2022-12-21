@@ -13,11 +13,11 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('distributors', function (Blueprint $table) {
+        Schema::create('pegawais', function (Blueprint $table) {
             $table->id();
-            $table->string('nama_distributor');
+            $table->string('nama_pegawai');
             $table->string('kode',100);
-            $table->string('daerah');
+            $table->string('posisi');
             $table->double('nomor_telepon');
             $table->timestamps();
         });
