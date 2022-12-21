@@ -1,12 +1,12 @@
 <template>
-  <h1 class="mt-3">Product</h1>
+  <h1 class="mt-3">Product atau Jasa</h1>
   <hr />
 
   <div class="container mt-3">
     <div class="row row-cols-1 row-cols-md-3 g-4">
       <div class="col" style="max-width: 18rem" v-for="(product, id) in products" :key="id">
         <div class="card border-dark mb-3">
-          <img src="https://img.freepik.com/free-vector/shopping-bag-basket-composition-with-isolated-image-food-products-paper-bag_1284-54439.jpg?w=2000" style="max-height: 150px; max-width: 150px" class="card-img-top m-auto" alt="..." />
+          <img src="https://png.pngtree.com/png-vector/20210501/ourlarge/pngtree-goddess-illustration-for-beauty-care-salon-logo-png-image_3250488.jpg" style="max-height: 150px; max-width: 150px" class="card-img-top m-auto" alt="..." />
           <div class="card-body text-center">
             <hr />
             <h5 class="card-title text-center">{{ product.nama_barang }}</h5>
@@ -15,9 +15,9 @@
             </div>
             <br />
             <hr />
-            <span v-if="product.jumlah === '0'"><button class="btn btn-secondary btn-sm" disabled>Pesan Barang</button></span>
+            <span v-if="product.jumlah === '0'"><button class="btn btn-secondary btn-sm" disabled>Pesan Product atau Jasa</button></span>
             <span v-else
-              ><router-link :to="{ name: 'userpesan', params: { id: product.id } }"><button class="btn btn-outline-success btn-sm">Pesan Barang</button></router-link></span
+              ><router-link :to="{ name: 'userpesan', params: { id: product.id } }"><button class="btn btn-outline-success btn-sm">Pesan Product atau Jasa</button></router-link></span
             >
           </div>
         </div>

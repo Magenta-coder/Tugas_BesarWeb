@@ -11,19 +11,19 @@
               <router-link :to="{ name: 'adminhome' }" class="nav-link align-middle px-0"><i class="fs-4 bi-house"></i> <span class="ms-1 d-none d-sm-inline text-white">Home</span></router-link>
             </li>
             <li class="nav-item">
-              <router-link :to="{ name: 'adminproduct' }" class="nav-link align-middle px-0"><i class="fs-4 bi bi-plus-square-fill"></i> <span class="ms-1 d-none d-sm-inline text-white">List Barang</span> </router-link>
+              <router-link :to="{ name: 'adminproduct' }" class="nav-link align-middle px-0"><i class="fs-4 bi bi-plus-square-fill"></i> <span class="ms-1 d-none d-sm-inline text-white">List Barang atau Jasa</span> </router-link>
             </li>
             <li>
               <router-link :to="{ name: 'adminlistpemesanan' }" class="nav-link align-middle px-0"><i class="fs-4 bi bi-cash-stack"></i><span class="ms-1 d-none d-sm-inline text-white">Cek List Pesanan</span> </router-link>
             </li>
             <li>
-              <router-link :to="{ name: 'admindistributor' }" class="nav-link align-middle px-0"><i class="fs-4 bi bi-diagram-3"></i><span class="ms-1 d-none d-sm-inline text-white">List Distributor</span> </router-link>
+              <router-link :to="{ name: 'adminpegawai' }" class="nav-link align-middle px-0"><i class="fs-4 bi bi-diagram-3"></i><span class="ms-1 d-none d-sm-inline text-white">List Pegawai</span> </router-link>
             </li>
           </ul>
           <hr />
           <div class="dropdown pb-4">
             <a href="#" class="d-flex align-items-center text-white text-decoration-none dropdown-toggle" id="dropdownUser1" data-bs-toggle="dropdown" aria-expanded="false">
-              <img src="https://thumbs.dreamstime.com/b/admin-sign-laptop-icon-stock-vector-166205404.jpg" alt="hugenerd" width="30" height="30" class="rounded-circle" />
+              <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTQg2NGwYIETKo6qvR4fSOT5LRh1d-otYgXxQ&usqp=CAU" alt="hugenerd" width="30" height="30" class="rounded-circle" />
               <span class="d-none d-sm-inline mx-1">ADMIN</span>
             </a>
             <ul class="dropdown-menu dropdown-menu-dark text-small shadow" aria-labelledby="dropdownUser1">

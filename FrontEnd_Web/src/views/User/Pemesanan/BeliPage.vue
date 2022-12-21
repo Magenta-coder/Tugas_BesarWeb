@@ -4,11 +4,11 @@
       <div class="col-md-12">
         <div class="card border-0 rounded shadow">
           <div class="card-body">
-            <h4>CHECKOUT</h4>
+            <h4>PEMBAYARAN</h4>
             <hr />
             <form @submit.prevent="update">
               <div class="form-group mb-3">
-                <label class="form-label">Nama Barang</label>
+                <label class="form-label">Nama Product atau Jasa</label>
                 <input type="text" class="form-control" v-model="pemesanan.nama_barang" readonly disabled />
                 <!-- validation -->
                 <div v-if="validation.nama_barang" class="mt-2 alert alert-danger">
@@ -28,7 +28,7 @@
                 <select class="form-control" disabled>
                   <option value="" hidden>Pilih Status</option>
                   <option value="1">Dalam Pemesanan</option>
-                  <option value="0" selected>Sudah Bayar | SELESAI</option>
+                  <option value="0" selected>BAYAR</option>
                 </select>
                 <!-- validation -->
                 <div v-if="validation.staus" class="mt-2 alert alert-danger">
@@ -124,7 +124,7 @@ export default {
               name: "userpesanlist",
             })
             .then(() => {
-              toaster.info(`Berhasil Melakukan Pembayaran | Checkout`);
+              toaster.info(`Berhasil Melakukan Pembayaran`);
             });
         })
         .catch((error) => {

@@ -4,32 +4,32 @@
       <div class="col-md-12">
         <div class="card border-0 rounded shadow">
           <div class="card-body">
-            <h4>EDIT DISTRIBUTOR</h4>
+            <h4>EDIT PEGAWAI</h4>
             <hr />
             <form @submit.prevent="update">
               <div class="form-group mb-3">
-                <label class="form-label">Nama Distributor</label>
-                <input type="text" class="form-control" v-model="distributor.nama_distributor" placeholder="Masukkan nama distributor" />
+                <label class="form-label">Nama Pegawai</label>
+                <input type="text" class="form-control" v-model="pegawai.nama_pegawai" placeholder="Masukkan nama pegawai" />
                 <!-- validation -->
-                <div v-if="validation.nama_distributor" class="mt-2 alert alert-danger">
-                  {{ validation.nama_distributor[0] }}
+                <div v-if="validation.nama_pegawai" class="mt-2 alert alert-danger">
+                  {{ validation.nama_pegawai[0] }}
                 </div>
               </div>
               <div class="form-group mb-3">
                 <label for="content" class="form-label">Kode</label>
-                <input class="form-control" v-model="distributor.kode" readonly disabled />
+                <input class="form-control" v-model="pegawai.kode" readonly disabled />
               </div>
               <div class="form-group mb-3">
-                <label for="content" class="form-label">Daerah</label>
-                <input class="form-control" v-model="distributor.daerah" placeholder="Masukkan Daerah" />
+                <label for="content" class="form-label">Posisi</label>
+                <input class="form-control" v-model="pegawai.posisi" placeholder="Masukkan Posisi Pegawai" />
                 <!-- validation -->
-                <div v-if="validation.daerah" class="mt-2 alert alert-danger">
-                  {{ validation.daerah[0] }}
+                <div v-if="validation.posisi" class="mt-2 alert alert-danger">
+                  {{ validation.posisi[0] }}
                 </div>
               </div>
               <div class="form-group mb-3">
                 <label for="content" class="form-label">Nomor Telepon</label>
-                <input class="form-control" type="number" v-model="distributor.nomor_telepon" placeholder="Masukkan Nomor Telepon" />
+                <input class="form-control" type="number" v-model="pegawai.nomor_telepon" placeholder="Masukkan Nomor Telepon" />
                 <!-- validation -->
                 <div v-if="validation.nomor_telepon" class="mt-2 alert alert-danger">
                   {{ validation.nomor_telepon[0] }}
@@ -54,11 +54,10 @@ export default {
       position: "top-right",
       duration: 2000,
     });
-    //state distributor
-    const distributor = reactive({
-      nama_distributor: "",
+    const pegawai = reactive({
+      nama_pegawai: "",
       kode: "",
-      daerah: "",
+      posisi: "",
       nomor_telepon: "",
     });
     //state validation
@@ -71,12 +70,12 @@ export default {
     onMounted(() => {
       axios.defaults.headers.common["Authorization"] = `Bearer ${token}`;
       axios
-        .get("http://localhost:8000/api/distributor/" + route.params.id)
+        .get("http://localhost:8000/api/pegawai/" + route.params.id)
         .then((response) => {
-          distributor.nama_distributor = response.data.data.nama_distributor;
-          distributor.kode = response.data.data.kode;
-          distributor.daerah = response.data.data.daerah;
-          distributor.nomor_telepon = response.data.data.nomor_telepon;
+          pegawai.nama_pegawai = response.data.data.nama_pegawai;
+          pegawai.kode = response.data.data.kode;
+          pegawai.posisi = response.data.data.posisi;
+          pegawai.nomor_telepon = response.data.data.nomor_telepon;
         })
         .catch((error) => {
           console.log(error.response.data);
@@ -85,26 +84,25 @@ export default {
 
     //method update
     function update() {
-      let nama_distributor = distributor.nama_distributor;
-      let daerah = distributor.daerah;
-      let nomor_telepon = distributor.nomor_telepon;
-      let kode = distributor.kode;
+      let nama_pegawai = pegawai.nama_pegawai;
+      let posisi = pegawai.posisi;
+      let nomor_telepon = pegawai.nomor_telepon;
+      let kode = pegawai.kode;
       axios
-        .put("http://localhost:8000/api/distributor/" + route.params.id, {
-          nama_distributor: nama_distributor,
+        .put("http://localhost:8000/api/pegawai/" + route.params.id, {
+          nama_pegawai: nama_pegawai,
           kode: kode,
-          daerah: daerah,
+          posisi: posisi,
           nomor_telepon: nomor_telepon,
         })
 
         .then(() => {
-          //redirect ke post index
           router
             .push({
-              name: "admindistributor",
+              name: "adminpegawai",
             })
             .then(() => {
-              toaster.info(`Berhasil Edit Distributor`);
+              toaster.info(`Berhasil Edit Pegawai`);
             });
         })
         .catch((error) => {
@@ -114,10 +112,11 @@ export default {
     }
     //return
     return {
-      distributor,
+      pegawai,
       validation,
       router,
       update,
+      route,
     };
   },
 };

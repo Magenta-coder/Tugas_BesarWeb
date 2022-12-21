@@ -56,7 +56,7 @@ class AuthController extends Controller
 
         if(!Auth::attempt(($loginData)))
             return response(['invalid' => true,'message'=>'Invalid Credentials'],401);
-       /** @var \App\Models\User $user **/
+            
             $user=Auth::user();
             $token=$user->createToken('Authentication Token')->accessToken;
 
@@ -70,7 +70,6 @@ class AuthController extends Controller
     }
 
     public function logout(){
-         /** @var \App\Models\User $user **/
         $user = Auth::user()->token();
         $user->revoke();
          return response()->json([
@@ -94,7 +93,7 @@ class AuthController extends Controller
             'email' => 'required|email:rfc,dns|unique:users',
             'password' => ['required']
             
-        ]); //membuat rule validasi input
+        ]);
 
         if($validate->fails())
         return response()->json($validate->errors(), 400);

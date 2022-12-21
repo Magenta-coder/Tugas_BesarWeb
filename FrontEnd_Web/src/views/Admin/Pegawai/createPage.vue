@@ -4,28 +4,28 @@
       <div class="col-md-12">
         <div class="card border-0 rounded shadow">
           <div class="card-body">
-            <h4>TAMBAH DISTRIBUTOR</h4>
+            <h4>TAMBAH PEGAWAI</h4>
             <hr />
             <form @submit.prevent="store">
               <div class="form-group mb-3">
-                <label class="form-label">Nama Distributor</label>
-                <input type="text" class="form-control" v-model="distributor.nama_distributor" placeholder="Masukkan nama distributor" />
+                <label class="form-label">Nama Pegawai</label>
+                <input type="text" class="form-control" v-model="pegawai.nama_pegawai" placeholder="Masukkan nama pegawai" />
                 <!-- validation -->
-                <div v-if="validation.nama_distributor" class="mt-2 alert alert-danger">
-                  {{ validation.nama_distributor[0] }}
+                <div v-if="validation.nama_pegawai" class="mt-2 alert alert-danger">
+                  {{ validation.nama_pegawai[0] }}
                 </div>
               </div>
               <div class="form-group mb-3">
-                <label for="content" class="form-label">Daerah</label>
-                <input class="form-control" v-model="distributor.daerah" placeholder="Masukkan Daerah" />
+                <label for="content" class="form-label">Posisi</label>
+                <input class="form-control" v-model="pegawai.posisi" placeholder="Masukkan posisi pegawai" />
                 <!-- validation -->
-                <div v-if="validation.daerah" class="mt-2 alert alert-danger">
-                  {{ validation.daerah[0] }}
+                <div v-if="validation.posisi" class="mt-2 alert alert-danger">
+                  {{ validation.posisi[0] }}
                 </div>
               </div>
               <div class="form-group mb-3">
                 <label for="content" class="form-label">Nomor Telepon</label>
-                <input class="form-control" type="number" v-model="distributor.nomor_telepon" placeholder="Masukkan Nomor Telepon" />
+                <input class="form-control" type="number" v-model="pegawai.nomor_telepon" placeholder="Masukkan Nomor Telepon" />
                 <!-- validation -->
                 <div v-if="validation.nomor_telepon" class="mt-2 alert alert-danger">
                   {{ validation.nomor_telepon[0] }}
@@ -50,10 +50,10 @@ export default {
       position: "top-right",
       duration: 2000,
     });
-    //state distributor
-    const distributor = reactive({
-      nama_distributor: "",
-      daerah: "",
+
+    const pegawai = reactive({
+      nama_pegawai: "",
+      posisi: "",
       nomor_telepon: "",
     });
 
@@ -64,25 +64,24 @@ export default {
     const token = localStorage.getItem("token");
     //method store
     function store() {
-      let nama_distributor = distributor.nama_distributor;
-      let daerah = distributor.daerah;
-      let nomor_telepon = distributor.nomor_telepon;
+      let nama_pegawai = pegawai.nama_pegawai;
+      let posisi = pegawai.posisi;
+      let nomor_telepon = pegawai.nomor_telepon;
       axios.defaults.headers.common["Authorization"] = `Bearer ${token}`;
       axios
-        .post("http://localhost:8000/api/distributor", {
-          nama_distributor: nama_distributor,
-          daerah: daerah,
+        .post("http://localhost:8000/api/pegawai", {
+          nama_pegawai: nama_pegawai,
+          posisi: posisi,
           nomor_telepon: nomor_telepon,
         })
         .then(() => {
-          //redirect ke post index
 
           router
             .push({
-              name: "admindistributor",
+              name: "adminpegawai",
             })
             .then(() => {
-              toaster.success(`Berhasil Menambah Distributor`);
+              toaster.success(`Berhasil Menambah Pegawai`);
             });
         })
         .catch((error) => {
@@ -92,7 +91,7 @@ export default {
     }
     //return
     return {
-      distributor,
+      pegawai,
       validation,
       router,
       store,

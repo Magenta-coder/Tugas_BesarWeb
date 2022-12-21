@@ -28,7 +28,7 @@
                 <select class="form-control">
                   <option value="" disabled hidden>Pilih Status</option>
                   <option value="1" selected>Dalam Pemesanan</option>
-                  <option value="0" disabled>Sudah Bayar | SELESAI</option>
+                  <option value="0" disabled>Sudah Bayar</option>
                 </select>
                 <!-- validation -->
                 <div v-if="validation.staus" class="mt-2 alert alert-danger">
@@ -125,7 +125,7 @@ export default {
               name: "userproduct",
             })
             .then(() => {
-              toaster.success(`Berhasil Menambah Pemesanan`);
+              toaster.success(`Berhasil Menambah Product`);
             });
         })
         .catch((error) => {

@@ -4,11 +4,11 @@
       <div class="col-md-12">
         <div class="card border-0 rounded shadow">
           <div class="card-body">
-            <h4>EDIT JUMLAH PRODUK</h4>
+            <h4>EDIT JUMLAH PEMESANAN</h4>
             <hr />
             <form @submit.prevent="update">
               <div class="form-group mb-3">
-                <label class="form-label">Nama Barang</label>
+                <label class="form-label">Nama Product atau Jasa</label>
                 <input type="text" class="form-control" v-model="pemesanan.nama_barang" readonly disabled />
                 <!-- validation -->
                 <div v-if="validation.nama_barang" class="mt-2 alert alert-danger">

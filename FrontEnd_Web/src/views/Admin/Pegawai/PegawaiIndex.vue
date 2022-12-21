@@ -1,32 +1,32 @@
 <template>
   <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
-    <h1 class="h2">Distributor List</h1>
+    <h1 class="h2">Pegawai</h1>
   </div>
   <div class="container mt-5">
     <div class="row">
       <div class="col-md-12">
         <div class="card border-0 rounded shadow">
           <div class="card-body">
-            <router-link :to="{ name: 'admindistributorcreate' }" class="btn btn-md btn-success">TAMBAH DISTRIBUTOR</router-link>
+            <router-link :to="{ name: 'adminpegawaicreate' }" class="btn btn-md btn-success">TAMBAH PEGAWAI</router-link>
             <table class="table table-striped table-bordered mt-4">
               <thead class="thead-dark">
                 <tr class="text-center">
-                  <th scope="col">NAMA DISTRIBUTOR</th>
-                  <th scope="col">KODE DISTRIBUTOR</th>
-                  <th scope="col">DAERAH</th>
+                  <th scope="col">NAMA PEGAWAI</th>
+                  <th scope="col">KODE PEGAWAI</th>
+                  <th scope="col">POSISI</th>
                   <th scope="col">TELEPON</th>
                   <th scope="col">AKSI</th>
                 </tr>
               </thead>
               <tbody class="text-center">
-                <tr v-for="(distributor, id) in distributors" :key="id">
-                  <td>{{ distributor.nama_distributor }}</td>
-                  <td>{{ distributor.kode }}</td>
-                  <td>{{ distributor.daerah }}</td>
-                  <td>{{ distributor.nomor_telepon }}</td>
+                <tr v-for="(pegawai, id) in pegawais" :key="id">
+                  <td>{{ pegawai.nama_pegawai }}</td>
+                  <td>{{ pegawai.kode }}</td>
+                  <td>{{ pegawai.posisi }}</td>
+                  <td>{{ pegawai.nomor_telepon }}</td>
                   <td class="text-center">
-                    <router-link :to="{ name: 'admindistributoredit', params: { id: distributor.id } }" class="btn btn-sm btn-primary mr-1"> EDIT</router-link> <v-spacer></v-spacer>
-                    <button class="btn btn-sm btn-danger ml-1" @click="del(distributor.id)">DELETE</button>
+                    <router-link :to="{ name: 'adminpegawaiedit', params: { id: pegawai.id } }" class="btn btn-sm btn-primary mr-1"> EDIT</router-link> <v-spacer></v-spacer>
+                    <button class="btn btn-sm btn-danger ml-1" @click="del(pegawai.id)">DELETE</button>
                   </td>
                 </tr>
               </tbody>
@@ -49,7 +49,7 @@ export default {
       duration: 2000,
     });
     //reactive state
-    let distributors = ref([]);
+    let pegawais = ref([]);
     //state validation
     const validation = ref([]);
     const router = useRouter();
@@ -59,10 +59,10 @@ export default {
       //get API from Laravel Backend
       axios.defaults.headers.common["Authorization"] = `Bearer ${token}`;
       axios
-        .get("http://localhost:8000/api/distributor")
+        .get("http://localhost:8000/api/pegawai")
         .then((response) => {
           //assign state posts with response data
-          distributors.value = response.data.data;
+          pegawais.value = response.data.data;
         })
         .catch((error) => {
           console.log(error.response.data);
@@ -70,15 +70,15 @@ export default {
     });
     function del(id) {
       axios
-        .delete(`http://localhost:8000/api/distributor/${id}`, {})
+        .delete(`http://localhost:8000/api/pegawai/${id}`, {})
         .then(() => {
-          //redirect ke halaman login
+
           router
             .push({
               name: "adminhome",
             })
             .then(() => {
-              toaster.warning(`Berhasil Delete Data Departemen`);
+              toaster.warning(`Berhasil Delete Data Pegawai`);
             });
         })
         .catch((error) => {
@@ -88,7 +88,7 @@ export default {
     }
     //return
     return {
-      distributors,
+      pegawais,
       del,
     };
   },

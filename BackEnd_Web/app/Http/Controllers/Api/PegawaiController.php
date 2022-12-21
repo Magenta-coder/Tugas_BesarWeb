@@ -31,12 +31,14 @@ class PegawaiController extends Controller
 
     public function store(Request $request)
     {
-        $carbon=\Carbon\Carbon::now();
+        $carbon=Carbon::now();
         $dateY=$carbon->format('y');
         $dateM=$carbon->format('m');
         $dateD=$carbon->format('d');
-        $totalBarang=sprintf('%03d',(Pegawai::all()->count())+1);
-        $stringKode='DIST-'.$dateY.$dateM.$dateD.'-'.$totalBarang;
+
+        $totalUser=sprintf('%03d',(Pegawai::all()->count())+1);
+        $stringKode='PGW-'.$dateY.$dateM.$dateD.'-'.$totalUser;
+
         $storeData=$request->all();
         $validate=Validator::make($storeData,[
             'nama_pegawai'=>'required|max:60|unique:pegawais',

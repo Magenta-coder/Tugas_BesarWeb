@@ -12,19 +12,16 @@
               <router-link :to="{ name: 'userhome' }" class="nav-link align-middle px-0"><i class="fs-4 bi-house"></i> <span class="ms-1 d-none d-sm-inline text-white">Home</span></router-link>
             </li>
             <li class="nav-item">
-              <router-link :to="{ name: 'userproduct' }" class="nav-link align-middle px-0"><i class="fs-4 bi bi-grid-3x3-gap"></i> <span class="ms-1 d-none d-sm-inline text-white">Barang</span> </router-link>
+              <router-link :to="{ name: 'userproduct' }" class="nav-link align-middle px-0"><i class="fs-4 bi bi-grid-3x3-gap"></i> <span class="ms-1 d-none d-sm-inline text-white">Product atau Jasa</span> </router-link>
             </li>
             <li>
               <router-link :to="{ name: 'userpesanlist' }" class="nav-link align-middle px-0"><i class="fs-4 bi bi-cash-stack"></i> <span class="ms-1 d-none d-sm-inline text-white">Pemesanan</span></router-link>
-            </li>
-            <li>
-              <router-link :to="{ name: 'userdist' }" class="nav-link align-middle px-0"><i class="fs-4 bi bi-diagram-3"></i> <span class="ms-1 d-none d-sm-inline text-white">List Distributor</span> </router-link>
             </li>
           </ul>
           <hr />
           <div class="dropdown pb-4">
             <a href="#" class="d-flex align-items-center text-white text-decoration-none dropdown-toggle" id="dropdownUser1" data-bs-toggle="dropdown" aria-expanded="false">
-              <img src="https://ps.w.org/user-avatar-reloaded/assets/icon-256x256.png?rev=2540745" alt="hugenerd" width="30" height="30" class="rounded-circle" />
+              <img src="https://thumbs.dreamstime.com/b/user-icon-vector-people-profile-person-illustration-business-users-group-symbol-male-195160429.jpg" alt="hugenerd" width="30" height="30" class="rounded-circle" />
               <span class="d-none d-sm-inline mx-1">More</span>
             </a>
             <ul class="dropdown-menu dropdown-menu-dark text-small shadow" aria-labelledby="dropdownUser1">
@@ -54,21 +51,17 @@ export default {
       position: "top-right",
       duration: 2000,
     });
-    //inisialisasi vue router on Composition API
+
     const router = useRouter();
 
-    //method logout
     function logout() {
-      //logout
-
       axios
         .post("http://localhost:8000/api/logout")
         .then((response) => {
           if (response.data.success) {
-            //remove localStorage
+
             localStorage.removeItem("token");
 
-            //redirect ke halaman login
             router
               .push({
                 name: "Home",
@@ -84,7 +77,7 @@ export default {
     }
 
     return {
-      logout, // <-- method logout
+      logout,
     };
   },
 };

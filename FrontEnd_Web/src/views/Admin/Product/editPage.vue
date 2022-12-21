@@ -88,7 +88,7 @@ export default {
       let harga = product.harga;
       let jumlah = product.jumlah;
       axios
-        .put("https://api.supermarketah.site/api/product/" + route.params.id, {
+        .put("http://localhost:8000/api/product/" + route.params.id, {
           nama_barang: nama_barang,
           harga: harga,
           jumlah: jumlah,

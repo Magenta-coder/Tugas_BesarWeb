@@ -4,12 +4,12 @@
       <div class="col-md-12">
         <div class="card border-0 rounded shadow">
           <div class="card-body">
-            <h4>TAMBAH PRODUK</h4>
+            <h4>TAMBAH PRODUK ATAU JASA</h4>
             <hr />
             <form @submit.prevent="store">
               <div class="form-group mb-3">
-                <label class="form-label">Nama Barang</label>
-                <input type="text" class="form-control" v-model="product.nama_barang" placeholder="Masukkan nama barang" />
+                <label class="form-label">Nama Barang atau Jasa</label>
+                <input type="text" class="form-control" v-model="product.nama_barang" placeholder="Masukkan nama barang atau jasa" />
                 <!-- validation -->
                 <div v-if="validation.nama_barang" class="mt-2 alert alert-danger">
                   {{ validation.nama_barang[0] }}

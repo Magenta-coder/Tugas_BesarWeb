@@ -75,19 +75,19 @@ class PemesananController extends Controller
     }
 
     public function showByUser($id){
-        $pemesanan = Pemesanan::where('idUser', $id)->get(); // mencari data berdasarkan id
+        $pemesanan = Pemesanan::where('idUser', $id)->get();
 
         if(count($pemesanan)>0){
             return response([
                 'message' => 'Retrieve Pemesanan Success',
                 'data' => $pemesanan
             ], 200);
-        } //return data yang ditemukan dalam bentuk json
+        } 
 
         return response([
             'message' => 'Pemesanan Not Found',
             'data' => null
-        ],); //return message data tidak ditemukan
+        ],);
     }
 
    

@@ -49,7 +49,6 @@ class ProductController extends Controller
         return response()->json($validate->errors(), 400);
         
             $product=Product::create($storeData+['kode'=>$stringKode]);
-            // $product=Product::create($storeData);
             return response([
                 'message'=>'add product success',
                 'data'=>$product

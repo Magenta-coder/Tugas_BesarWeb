@@ -10,7 +10,7 @@
             <table class="table table-striped table-bordered mt-4">
               <thead class="thead-dark">
                 <tr class="text-center">
-                  <th scope="col">NAMA BARANG</th>
+                  <th scope="col">NAMA BARANG ATAU JASA</th>
                   <th scope="col">KODE PEMESANAN</th>
                   <th scope="col">TOTAL HARGA</th>
                   <th scope="col">JUMLAH</th>

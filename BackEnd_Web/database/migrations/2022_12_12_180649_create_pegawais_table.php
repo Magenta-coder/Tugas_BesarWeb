@@ -16,7 +16,7 @@ return new class extends Migration
         Schema::create('pegawais', function (Blueprint $table) {
             $table->id();
             $table->string('nama_pegawai');
-            $table->string('kode',100);
+            $table->string('kode',100)->nullable();
             $table->string('posisi');
             $table->double('nomor_telepon');
             $table->timestamps();

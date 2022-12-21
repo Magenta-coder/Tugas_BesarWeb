@@ -77,19 +77,19 @@ const routes = [
         component: () => import("@/views/Admin/AdminHome.vue"),
       },
       {
-        path: "/admin/distributor",
-        name: "admindistributor",
-        component: () => import("@/views/Admin/Distributor/DistributorIndex.vue"),
+        path: "/admin/pegawai",
+        name: "adminpegawai",
+        component: () => import("@/views/Admin/Pegawai/PegawaiIndex.vue"),
       },
       {
-        path: "/admin/distributor/create",
-        name: "admindistributorcreate",
-        component: () => import("@/views/Admin/Distributor/createPage.vue"),
+        path: "/admin/pegawai/create",
+        name: "adminpegawaicreate",
+        component: () => import("@/views/Admin/Pegawai/createPage.vue"),
       },
       {
-        path: "/admin/distributor/edit",
-        name: "admindistributoredit",
-        component: () => import("@/views/Admin/Distributor/editPage.vue"),
+        path: "/admin/pegawai/edit",
+        name: "adminpegawaiedit",
+        component: () => import("@/views/Admin/Pegawai/editPage.vue"),
       },
       {
         path: "/admin/product",

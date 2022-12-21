@@ -28,11 +28,11 @@ Route::group(['middleware'=>'auth:api'],function(){
     Route::delete('product/{id}','Api\ProductController@destroy');
     
 
-    Route::get('distributor','Api\DistributorController@index');
-    Route::get('distributor/{id}','Api\DistributorController@show');
-    Route::post('distributor','Api\DistributorController@store');
-    Route::put('distributor/{id}','Api\DistributorController@update');
-    Route::delete('distributor/{id}','Api\DistributorController@destroy');
+    Route::get('pegawai','Api\PegawaiController@index');
+    Route::get('pegawai/{id}','Api\PegawaiController@show');
+    Route::post('pegawai','Api\PegawaiController@store');
+    Route::put('pegawai/{id}','Api\PegawaiController@update');
+    Route::delete('pegawai/{id}','Api\PegawaiController@destroy');
 
     Route::get('pemesanan', 'Api\PemesananController@index');
     Route::get('pemesanan/{id}', 'Api\PemesananController@show');

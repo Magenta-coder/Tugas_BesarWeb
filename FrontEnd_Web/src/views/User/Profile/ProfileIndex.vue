@@ -5,10 +5,10 @@
         <div class="col-lg-3 m-auto">
           <div class="card mb-4">
             <div class="card-body text-center">
-              <img src="https://ps.w.org/user-avatar-reloaded/assets/icon-256x256.png?rev=2540745" alt="avatar" class="rounded-circle img-fluid" style="width: 215px; height: 215px" />
+              <img src="https://thumbs.dreamstime.com/b/user-icon-vector-people-profile-person-illustration-business-users-group-symbol-male-195160429.jpg" alt="avatar" class="rounded-circle img-fluid" style="width: 215px; height: 215px" />
               <h5 class="my-3">{{ user.name }}</h5>
               <hr />
-              <p class="text-muted mb-1">User Supermarket</p>
+              <p class="text-muted mb-1">User Salon</p>
               <p class="text-muted mb-4">{{ user.email }}</p>
             </div>
           </div>
@@ -55,7 +55,7 @@
 </template>
 <style scoped>
 #bg {
-  background: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.3)), url(https://png.pngtree.com/background/20210716/original/pngtree-colorful-colorful-green-orange-yellow-gold-line-watercolor-background-picture-image_1330385.jpg);
+  background: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.3)), url(https://media.istockphoto.com/id/1219335195/vector/fashion-woman-accessory-proffessional-tools.jpg?s=612x612&w=0&k=20&c=qQY6FgU0Bqy8q1j02bUcgISUGRB9PrTga2QpsiMv3zA=);
   background-position: center;
   background-size: cover;
 }

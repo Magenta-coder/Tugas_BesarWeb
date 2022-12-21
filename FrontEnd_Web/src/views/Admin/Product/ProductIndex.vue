@@ -1,17 +1,17 @@
 <template>
   <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
-    <h1 class="h2">Produk List</h1>
+    <h1 class="h2">Produk atau Jasa</h1>
   </div>
   <div class="container mt-5">
     <div class="row">
       <div class="col-md-12">
         <div class="card border-0 rounded shadow">
           <div class="card-body">
-            <router-link :to="{ name: 'adminproductcreate' }" class="btn btn-md btn-success">TAMBAH PRODUK</router-link>
+            <router-link :to="{ name: 'adminproductcreate' }" class="btn btn-md btn-success">TAMBAH PRODUK ATAU JASA</router-link>
             <table class="table table-striped table-bordered mt-4">
               <thead class="thead-dark">
                 <tr class="text-center">
-                  <th scope="col">NAMA PRODUK</th>
+                  <th scope="col">NAMA PRODUK ATAU JASA</th>
                   <th scope="col">HARGA</th>
                   <th scope="col">STOK</th>
                   <th scope="col">AKSI</th>

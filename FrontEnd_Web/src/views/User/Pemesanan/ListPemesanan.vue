@@ -1,6 +1,6 @@
 <template>
   <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
-    <h1 class="h2">List Pemesanan</h1>
+    <h1 class="h2">Pemesanan</h1>
   </div>
   <div class="container mt-5">
     <div class="row">
@@ -10,13 +10,13 @@
             <table class="table table-striped table-bordered mt-4">
               <thead class="thead-dark">
                 <tr class="text-center">
-                  <th scope="col">NAMA BARANG</th>
+                  <th scope="col">NAMA PEMESANAN</th>
                   <th scope="col">KODE PEMESANAN</th>
                   <th scope="col">TOTAL HARGA</th>
                   <th scope="col">JUMLAH</th>
                   <th scope="col">STATUS</th>
                   <th scope="col">AKSI</th>
-                  <th scope="col">CHECKOUT</th>
+                  <th scope="col">PEMBAYARAN</th>
                 </tr>
               </thead>
               <tbody class="text-center">
@@ -29,18 +29,18 @@
                   <td v-else-if="pemesanan.status === 0">SELESAI</td>
 
                   <td class="text-center" v-if="pemesanan.status === 1">
-                    <router-link :to="{ name: 'userpesanedit', params: { id: pemesanan.id } }" class="btn btn-sm btn-primary mr-1">MORE</router-link> &nbsp;
+                    <router-link :to="{ name: 'userpesanedit', params: { id: pemesanan.id } }" class="btn btn-sm btn-primary mr-1">EDIT</router-link> &nbsp;
                     <button class="btn btn-sm btn-danger ml-1" @click="del(pemesanan.id)">BATAL</button>
                   </td>
                   <td class="text-center" v-else-if="pemesanan.status === 0">
-                    <button class="btn btn-sm btn-secondary mr-1" disabled>MORE</button> &nbsp;
+                    <button class="btn btn-sm btn-secondary mr-1" disabled>EDIT</button> &nbsp;
                     <button class="btn btn-sm btn-danger ml-1" @click="del(pemesanan.id)">HAPUS</button>
                   </td>
                   <td class="text-center" v-if="pemesanan.status === 1">
-                    <router-link :to="{ name: 'userbeli', params: { id: pemesanan.id } }" class="btn btn-sm btn-success mr-1">CHECKOUT</router-link>
+                    <router-link :to="{ name: 'userbeli', params: { id: pemesanan.id } }" class="btn btn-sm btn-success mr-1">BAYAR</router-link>
                   </td>
                   <td class="text-center" v-else-if="pemesanan.status === 0">
-                    <button class="btn btn-sm btn-secondary mr-1" disabled>CHECKOUT</button>
+                    <button class="btn btn-sm btn-secondary mr-1" disabled>BAYAR</button>
                   </td>
                 </tr>
               </tbody>
