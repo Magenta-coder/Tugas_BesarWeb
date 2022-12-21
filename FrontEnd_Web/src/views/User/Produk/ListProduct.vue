@@ -10,14 +10,16 @@
           <div class="card-body text-center">
             <hr />
             <h5 class="card-title text-center">{{ product.nama_barang }}</h5>
-            <div class="badge bg-dark text-wrap">
-              <p class="card-text">Rp.{{ product.harga }} | Stok : {{ product.jumlah }}</p>
+            <div class="badge bg-primary text-wrap" style="width: 200px;">
+              <p class="card-text">Rp.{{ product.harga }}</p>
+              <hr />
+              <p class="card-text">Stok : {{ product.jumlah }}</p>
             </div>
             <br />
             <hr />
-            <span v-if="product.jumlah === '0'"><button class="btn btn-secondary btn-sm" disabled>Pesan Product atau Jasa</button></span>
+            <span v-if="product.jumlah === '0'"><button class="btn btn-primary btn-sm" disabled>Pesan Product atau Jasa</button></span>
             <span v-else
-              ><router-link :to="{ name: 'userpesan', params: { id: product.id } }"><button class="btn btn-outline-success btn-sm">Pesan Product atau Jasa</button></router-link></span
+              ><router-link :to="{ name: 'userpesan', params: { id: product.id } }"><button class="btn btn-outline-primary btn-sm">Pesan Product atau Jasa</button></router-link></span
             >
           </div>
         </div>

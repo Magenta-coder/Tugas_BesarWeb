@@ -34,11 +34,6 @@ const routes = [
         component: () => import("@/views/User/Profile/ProfileIndex.vue"),
       },
       {
-        path: "/userdist",
-        name: "userdist",
-        component: () => import("@/views/User/ListDistributor.vue"),
-      },
-      {
         path: "/userproduct",
         name: "userproduct",
         component: () => import("@/views/User/Produk/ListProduct.vue"),
